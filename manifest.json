@@ -1,0 +1,13 @@
+{
+	"manifest_version": 3,
+	"name": "Overlay Timer",
+	"version": "1.0",
+	"description": "Displays a transparent overlay with a running timer.",
+	"permissions": ["scripting", "activeTab"],
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"js": ["content.js"]
+		}
+	]
+}
