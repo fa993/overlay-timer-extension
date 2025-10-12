@@ -117,18 +117,18 @@ class QTracker {
 }
 
 function getContrastColor(rgb) {
-  // Parse "rgb(r,g,b)"
-  const match = rgb.match(/(\d+),\s*(\d+),\s*(\d+)/);
-  if (!match) return "#00ffcc"; // fallback
-  const r = parseInt(match[1], 10);
-  const g = parseInt(match[2], 10);
-  const b = parseInt(match[3], 10);
+	// Parse "rgb(r,g,b)"
+	const match = rgb.match(/(\d+),\s*(\d+),\s*(\d+)/);
+	if (!match) return '#00ffcc'; // fallback
+	const r = parseInt(match[1], 10);
+	const g = parseInt(match[2], 10);
+	const b = parseInt(match[3], 10);
 
-  // Compute luminance
-  const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+	// Compute luminance
+	const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
 
-  // Light background → dark text, dark background → light text
-  return luminance > 0.5 ? "#000000" : "#ffffff";
+	// Light background → dark text, dark background → light text
+	return luminance > 0.5 ? '#000000' : '#ffffff';
 }
 
 let overlay = null;
@@ -178,11 +178,10 @@ function createOverlay() {
 	overlay.style.borderRadius = '6px';
 	overlay.style.backdropFilter = 'blur(3px)';
 
-  const bodyStyle = window.getComputedStyle(document.body);
-  const bgColor = bodyStyle.backgroundColor || "rgb(255,255,255)";
+	const bodyStyle = window.getComputedStyle(document.body);
+	const bgColor = bodyStyle.backgroundColor || 'rgb(255,255,255)';
 
-  overlay.style.color = getContrastColor(bgColor);
-
+	overlay.style.color = getContrastColor(bgColor);
 
 	timerEl = document.createElement('div');
 	timerEl.id = 'timer-display';
@@ -237,11 +236,13 @@ function updateTimer(status) {
 
 	const diff = status.actualQ * status.secondsPerQuestion - elapsed;
 
-	if (diff < 0) {
-		line1El.textContent = `You are behind by ${Math.abs(diff)}s`;
-	} else {
-		line1El.textContent = `You are ahead by ${Math.abs(diff)}s`;
-	}
+	// if (diff < 0) {
+	// 	line1El.textContent = `You are behind by ${Math.abs(diff)}s`;
+	// } else {
+	// 	line1El.textContent = `You are ahead by ${Math.abs(diff)}s`;
+	// }
+
+	line1El.textContent = `Time left: ${diff}s`;
 
 	line2El.textContent = `Actual Q: ${status.actualQ} Expected Q: ${status.expectedQ}`;
 }
