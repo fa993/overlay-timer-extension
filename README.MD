@@ -72,7 +72,7 @@ A lightweight browser extension that overlays a live timer and question tracker 
 
 ## 🖼️ Example
 
-![Overlay Timer Screenshot](https://user-images.githubusercontent.com/yourusername/overlay-timer-demo.png)
+![Overlay Timer Screenshot](public/example.png)
 
 ---
 
