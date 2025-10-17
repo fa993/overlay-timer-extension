@@ -236,12 +236,6 @@ function updateTimer(status) {
 
 	const diff = status.actualQ * status.secondsPerQuestion - elapsed;
 
-	// if (diff < 0) {
-	// 	line1El.textContent = `You are behind by ${Math.abs(diff)}s`;
-	// } else {
-	// 	line1El.textContent = `You are ahead by ${Math.abs(diff)}s`;
-	// }
-
 	line1El.textContent = `Time left: ${diff}s`;
 
 	line2El.textContent = `Actual Q: ${status.actualQ} Expected Q: ${status.expectedQ}`;
